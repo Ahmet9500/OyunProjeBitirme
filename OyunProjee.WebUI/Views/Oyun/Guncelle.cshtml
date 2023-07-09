@@ -1,0 +1,38 @@
+﻿@model Oyun
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Guncelle</h1>
+@if (ViewBag.OyunAddError != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.OyunAddError
+    </div>
+}
+else {
+    <form asp-controller="Oyun" asp-action="Guncelle" method="post">
+    <div class="form-group">
+        <input type="text" name="Id" value="@Model.Id">
+        <label for="exampleFormControlInput1">OyunAdı</label>
+        <input type="text" name="OyunAdı" placeholder="Oyun adını giriniz"  value="@Model.OyunAdı">
+        <label for="exampleFormControlInput1">Kuruluş Tarihi</label>
+        <input type="text" name="KurulusTarihi" placeholder="Oyun adını giriniz" value="@Model.KurulusTarihi">
+    <div class="form-group">
+        <label>Oyunun Türü</label>
+        <select class="form-control" name="Türü" value="@Model.Türü">
+           <option>Futbol</option>
+            <option>Basketbol</option>
+            <option>Strateji</option>
+            <option>Araba</option>
+            <option>Silah</option>
+        </select>
+    </div>
+    <input type="number" name="Fiyat" value="@Model.Fiyat">
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    </form>
+}

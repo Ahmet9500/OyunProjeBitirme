@@ -1,0 +1,26 @@
+﻿@model Karakter
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Ekle</h1>
+@if (ViewBag.KarakterError != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.KarakterAddError
+    </div>
+}
+else
+{
+    <form asp-controller="Karakter" asp-action="Ekle" method="post">
+        <input type="text" name="OyunAdı" placeholder="Oyun Adı Giriniz" /><br /><br />
+        <input type="text" name="OyuncuAdı" placeholder="Oyuncu adı giriniz"><br/><br/>
+        <input type="text" name="OyuncuOzellikleri" placeholder="Oyuncu Özelliklerini Giriniz"><br/><br/>
+        <input type="text" name="Gucu" placeholder="Gücünü Giriniz"><br/><br/>
+        <input type="text" name="Vurus" ><br/><br/>
+        <input type="text" name="FızıkselOzellik"> 
+        <input type="submit" value="Kaydet" class="btn btn-success" />
+    </form>
+}
+
